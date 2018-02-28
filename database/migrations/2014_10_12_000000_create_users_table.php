@@ -20,8 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('direccion')->nullable();
             $table->string('di')->nullable();
             $table->string('email')->unique();
+            $table->string('tipo')->default("cliente");
             $table->string('password');
-            $table->string('image_url')->nullable();
+            $table->longText('image_url')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
