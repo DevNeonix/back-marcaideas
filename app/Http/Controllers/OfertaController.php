@@ -45,9 +45,9 @@ class OfertaController extends Controller
      * @param  \App\oferta  $oferta
      * @return \Illuminate\Http\Response
      */
-    public function show(oferta $oferta)
+    public function show($id)
     {
-        //
+        return response()->json(Oferta::where("lugar_id",$id)->get(), 200, [], 256);
     }
 
     /**

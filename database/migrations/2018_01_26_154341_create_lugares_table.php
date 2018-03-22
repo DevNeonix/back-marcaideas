@@ -25,6 +25,8 @@ class CreateLugaresTable extends Migration
             $table->time('horario_apertura');
             $table->time('horario_cierre');
             $table->text('redes');
+            $table->text('direccion');
+            $table->text('ubicacion');
             $table->string('image_url');
             $table->timestamps();
             $table->softDeletes();
