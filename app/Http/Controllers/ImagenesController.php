@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Imagenes;
 use Illuminate\Http\Request;
 
-class OfertaController extends Controller
+class ImagenesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,7 @@ class OfertaController extends Controller
      */
     public function index()
     {
-        $data=\App\Oferta::where('fecha_fin','>=',date("Y-m-d"))->whereNull('fecha_fin')->get();
-        return response()->json($data, 200, [], 256);
+        //
     }
 
     /**
@@ -41,21 +41,21 @@ class OfertaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\oferta  $oferta
+     * @param  \App\Imagenes  $imagenes
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return response()->json(Oferta::where("lugar_id",$id)->get(), 200, [], 256);
+        return response()->json(Imagenes::where("lugar_id",$id)->get(), 200, [], 256);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\oferta  $oferta
+     * @param  \App\Imagenes  $imagenes
      * @return \Illuminate\Http\Response
      */
-    public function edit(oferta $oferta)
+    public function edit(Imagenes $imagenes)
     {
         //
     }
@@ -64,10 +64,10 @@ class OfertaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\oferta  $oferta
+     * @param  \App\Imagenes  $imagenes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, oferta $oferta)
+    public function update(Request $request, Imagenes $imagenes)
     {
         //
     }
@@ -75,10 +75,10 @@ class OfertaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\oferta  $oferta
+     * @param  \App\Imagenes  $imagenes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(oferta $oferta)
+    public function destroy(Imagenes $imagenes)
     {
         //
     }

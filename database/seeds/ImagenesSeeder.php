@@ -1,9 +1,8 @@
 <?php
 
-use App\Oferta;
 use Illuminate\Database\Seeder;
 
-class OfertaSeeder extends Seeder
+class ImagenesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +11,6 @@ class OfertaSeeder extends Seeder
      */
     public function run()
     {
-        factory(Oferta::class, 100)->create();
+        factory(\App\Imagenes::class, 300)->create();
     }
 }
