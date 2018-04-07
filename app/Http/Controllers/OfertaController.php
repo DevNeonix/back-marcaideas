@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Oferta;
 use Illuminate\Http\Request;
 
 class OfertaController extends Controller
@@ -13,7 +14,11 @@ class OfertaController extends Controller
      */
     public function index()
     {
-        $data=\App\Oferta::where('fecha_fin','>=',date("Y-m-d"))->whereNull('fecha_fin')->get();
+        
+        $data=\App\Oferta::where('fecha_fin','>=',date("Y-m-d"))
+            ->join('lugares','lugares.id','=','ofertas.lugar_id')
+            ->select("ofertas.*" , "lugares.lat","lugares.lon")
+            ->get();
         return response()->json($data, 200, [], 256);
     }
 
@@ -46,7 +51,11 @@ class OfertaController extends Controller
      */
     public function show($id)
     {
-        return response()->json(Oferta::where("lugar_id",$id)->get(), 200, [], 256);
+        $data=Oferta::where("lugar_id",$id)->where('fecha_fin','>=',date("Y-m-d"))
+            ->join('lugares','lugares.id','=','ofertas.lugar_id')
+            ->select("ofertas.*" , "lugares.lat","lugares.lon")
+            ->get();
+        return response()->json($data, 200, [], 256);
     }
 
     /**

@@ -25,6 +25,7 @@ class CreateOfertasTable extends Migration
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->text('image_url');
+            $table->text('condiciones');
             $table->timestamps();
             $table->softDeletes();
         });

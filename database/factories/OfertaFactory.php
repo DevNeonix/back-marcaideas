@@ -15,6 +15,7 @@ $factory->define(Oferta::class, function (Faker $faker) {
             'descuento'=>15,
             'fecha_inicio'=>$faker->date(),
             'fecha_fin'=>$faker->date(),
-            'image_url'=>$faker->imageUrl($width = 640, $height = 480)
+            'image_url'=>$faker->imageUrl($width = 640, $height = 480),
+            'condiciones'=>$faker->text()
     ];
 });
