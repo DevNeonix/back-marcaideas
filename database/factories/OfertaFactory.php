@@ -10,6 +10,7 @@ $factory->define(Oferta::class, function (Faker $faker) {
             'lugar_id'=>rand(1,100),
             'producto'=>$faker->jobTitle(),
             'descripcion'=>$faker->text(),
+            'cupon'=>$faker->text(rand(1,19)),
             'precio_regular'=>$precio,
             'precio_promocion'=>$precio_promocion,
             'descuento'=>15,

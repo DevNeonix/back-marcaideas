@@ -19,6 +19,7 @@ class CreateOfertasTable extends Migration
             $table->foreign('lugar_id')->references('id')->on('lugares');
             $table->string('producto');
             $table->text('descripcion');
+            $table->string('cupon',20);
             $table->double('precio_regular');
             $table->double('precio_promocion');
             $table->double('descuento');
