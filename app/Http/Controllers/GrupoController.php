@@ -72,10 +72,7 @@ class GrupoController extends Controller
      * @param  \App\grupo $grupo
      * @return \Illuminate\Http\Response
      */
-    public function edit(grupo $grupo)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -86,7 +83,16 @@ class GrupoController extends Controller
      */
     public function update(Request $request, grupo $grupo)
     {
-        //
+        $ugrupo = grupo::findOrFail($request->id);
+        $ugrupo->nombre=$request->nombre;
+        $ugrupo->image_url=$request->image_url;
+
+        if($ugrupo->save()){
+            return response()->json('',200);
+        }else{
+            return response()->json('',400);
+        }
+
     }
 
     /**
@@ -95,8 +101,10 @@ class GrupoController extends Controller
      * @param  \App\grupo $grupo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(grupo $grupo)
+    public function destroy($id)
     {
-        //
+        $grupo = grupo::find($id);
+        $grupo->delete();
+        return response('',200);
     }
 }

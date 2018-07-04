@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class lugare extends Model
 {
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
     protected $fillable = [
         'categoria_id',
         'razon_social',
@@ -14,7 +17,6 @@ class lugare extends Model
         'lon',
         'telefono',
         'direccion',
-        'ofertas',
         'horario_apertura',
         'horario_cierre',
         'redes',

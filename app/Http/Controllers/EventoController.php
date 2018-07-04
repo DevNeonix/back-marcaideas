@@ -92,7 +92,20 @@ class EventoController extends Controller
      */
     public function update(Request $request, evento $evento)
     {
-        //
+        $update = evento::findOrFail($request->id);
+        $update->nombre=$request->nombre;
+        $update->descripcion=$request->descripcion;
+        $update->image_url=$request->image_url;
+        $update->fecha_inicio=$request->fecha_inicio;
+        $update->fecha_fin=$request->fecha_fin;
+        $update->lat=$request->lat;
+        $update->lon=$request->lon;
+
+        if($update->save()){
+            return response()->json('',200);
+        }else{
+            return response()->json('',400);
+        }
     }
 
     /**
@@ -103,6 +116,7 @@ class EventoController extends Controller
      */
     public function destroy(evento $evento)
     {
-        //
+        $evento->delete();
+        return response('',200);
     }
 }

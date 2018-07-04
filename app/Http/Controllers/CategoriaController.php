@@ -88,7 +88,16 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, categoria $categoria)
     {
-        //
+        $update = categoria::findOrFail($request->id);
+        $update->nombre=$request->nombre;
+        $update->grupo_id=$request->grupo_id;
+        $update->image_url=$request->image_url;
+
+        if($update->save()){
+            return response()->json('',200);
+        }else{
+            return response()->json('',400);
+        }
     }
 
     /**
@@ -99,6 +108,7 @@ class CategoriaController extends Controller
      */
     public function destroy(categoria $categoria)
     {
-        //
+        $categoria->delete();
+        return response('',200);
     }
 }

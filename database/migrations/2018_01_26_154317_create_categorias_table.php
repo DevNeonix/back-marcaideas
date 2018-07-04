@@ -17,7 +17,6 @@ class CreateCategoriasTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->integer('grupo_id')->unsigned();
-            $table->foreign('grupo_id')->references('id')->on('grupos');
             $table->string('image_url');
             $table->timestamps();
             $table->softDeletes();

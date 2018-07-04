@@ -16,18 +16,17 @@ class CreateLugaresTable extends Migration
         Schema::create('lugares', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('categoria_id')->unsigned();
-            $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->string('razon_social');
-            $table->text('descripcion');
-            $table->double('lat');
-            $table->double('lon');
-            $table->string('telefono');
-            $table->time('horario_apertura');
-            $table->time('horario_cierre');
-            $table->text('redes');
-            $table->text('direccion');
-            $table->text('ubicacion');
-            $table->string('image_url');
+            $table->text('descripcion')->nullable();
+            $table->double('lat')->nullable();
+            $table->double('lon')->nullable();
+            $table->string('telefono')->nullable();
+            $table->time('horario_apertura')->nullable();
+            $table->time('horario_cierre')->nullable();
+            $table->text('redes')->nullable();
+            $table->text('direccion')->nullable();
+            $table->text('ubicacion')->nullable();
+            $table->string('image_url')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

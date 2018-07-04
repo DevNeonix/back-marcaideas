@@ -16,7 +16,6 @@ class CreateImagenesTable extends Migration
         Schema::create('imagenes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('lugar_id')->unsigned();
-            $table->foreign('lugar_id')->references('id')->on('lugares');
             $table->string('img');
             $table->timestamps();
             $table->softDeletes();

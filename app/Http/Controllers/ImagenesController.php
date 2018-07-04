@@ -80,6 +80,7 @@ class ImagenesController extends Controller
      */
     public function destroy(Imagenes $imagenes)
     {
-        //
+        $imagenes->delete();
+        return response('',200);
     }
 }

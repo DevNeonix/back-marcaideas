@@ -98,7 +98,24 @@ class LugareController extends Controller
      */
     public function update(Request $request, lugare $lugare)
     {
-        //
+        $update = lugare::findOrFail($request->id);
+        $update->categoria_id=$request->categoria_id;
+        $update->razon_social=$request->razon_social;
+        $update->descripcion=$request->descripcion;
+        $update->lat=$request->lat;
+        $update->lon=$request->lon;
+        $update->telefono=$request->telefono;
+        $update->direccion=$request->direccion;
+        $update->horario_apertura=$request->horario_apertura;
+        $update->horario_cierre=$request->horario_cierre;
+        $update->redes=$request->redes;
+        $update->image_url=$request->image_url;
+
+        if($update->save()){
+            return response()->json('',200);
+        }else{
+            return response()->json('',400);
+        }
     }
 
     /**
@@ -109,6 +126,7 @@ class LugareController extends Controller
      */
     public function destroy(lugare $lugare)
     {
-        //
+        $lugare->delete();
+        return response('',200);
     }
 }
